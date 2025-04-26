@@ -1,0 +1,70 @@
+{
+	"name": "kotlin-tools",
+	"displayName": "Kotlin Tools",
+	"description": "Minimal Kotlin project generator for VS Code",
+	"publisher": "hiveMC",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.99.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:kotlin"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "kotlin-tools.createProject",
+				"title": "Create Kotlin Project",
+				"category": "Kotlin"
+			},
+			{
+				"command": "kotlin-tools.run",
+				"title": "Run Kotlin",
+				"icon": "$(play)",
+				"category": "Kotlin"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "kotlin-tools.run",
+					"group": "navigation",
+					"when": "resourceLangId == kotlin"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Kotlin Tools",
+			"properties": {
+				"kotlin-tools.kotlinPath": {
+					"type": "string",
+					"default": "C:\\kotlin",
+					"description": "Path to Kotlin"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "pnpm run compile && pnpm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.99.0",
+		"@types/mocha": "^10.0.10",
+		"@types/node": "20.x",
+		"@typescript-eslint/eslint-plugin": "^8.28.0",
+		"@typescript-eslint/parser": "^8.28.0",
+		"eslint": "^9.23.0",
+		"typescript": "^5.8.2",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1"
+	}
+}
