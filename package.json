@@ -1,6 +1,10 @@
 {
 	"name": "kotlin-tools",
 	"displayName": "Kotlin Tools",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hiveMC3310/Kotlin-Tools"
+	},
 	"description": "Minimal Kotlin project generator for VS Code",
 	"publisher": "hiveMC",
 	"version": "0.0.1",
